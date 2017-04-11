@@ -3,13 +3,37 @@ package com.twitte;
 import java.util.LinkedList;
 import com.twitter.poruke.TwitterPoruka;
 
+/**
+ * 
+ *@author Milos Bijanic
+ *@version 2.0
+ *	Klasa kreira listu poruka i: 
+ * <ul>
+ * <li>Unosi poruke na kraj liste</li>
+ * <li>Vrsi pretragu liste</li>
+ * </ul>
+ */
+
 public class Twitter {
+	/**
+	 * Lista objekata  TwitterPoruka.
+	 */
 	private LinkedList<TwitterPoruka> poruke = new LinkedList<TwitterPoruka>();
 
+	
+	/**
+	 * Vraca celu listu sa svim porukama.
+	 * @return lista tipa TwitterPoruka.
+	 */
 	public LinkedList<TwitterPoruka> vratiSvePoruke() {
 		return poruke;
 	}
 
+	/***
+	 * Unosi novu poruku na kraj liste.
+	 * @param ime korisnika koji je napravio poruku
+	 * @param sam tekst poruke.
+	 */
 	public void unesi(String korisnik, String poruka) {
 		// Pravi se nova poruka i puni podacima.
 		TwitterPoruka tp = new TwitterPoruka();
@@ -19,6 +43,18 @@ public class Twitter {
 		poruke.addLast(tp);
 	}
 
+	
+	/**
+	 * Pretrazuje poruke koje sadrze po 'tagu', i pravi niz od tih poruka.
+	 * @param maxBroj maksimalna duzina niza.
+	 * @param tag kriterijum za pretragu.
+	 * @return niz objekata TwitterPoruka koje su pronadjene prema tagu.
+	 * @throws java.lang.RuntimeException ako je tag:
+	 * <ul>
+	 * <li>null</li>
+	 * <li>prazan String</li>
+	 * </ul>
+	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		if (tag == null || tag.isEmpty())
 			throw new RuntimeException("Morate uneti tag");
