@@ -33,6 +33,24 @@ public class TwitterTest {
 	}
 	
 	@Test
+	public void testVratiSvePorukeSadrzaj() {
+		String a = "a";
+		for(int i = 1; i <= 3; i++){
+			t.unesi("p"+a, "l"+a);
+			a +=a;
+		}
+		LinkedList<TwitterPoruka> l = t.vratiSvePoruke();
+		
+		assertEquals("pa",l.get(0).getKorisnik());
+		assertEquals("paa",l.get(1).getKorisnik());
+		assertEquals("paaaa",l.get(2).getKorisnik());
+		
+		assertEquals("la",l.get(0).getPoruka());
+		assertEquals("laa",l.get(1).getPoruka());
+		assertEquals("laaaa",l.get(2).getPoruka());
+	}
+	
+	@Test
 	public void testVratiSvePorukeAkoNema() {
 	
 		assertEquals(0, t.vratiSvePoruke().size());

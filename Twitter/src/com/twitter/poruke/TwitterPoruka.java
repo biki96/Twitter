@@ -1,19 +1,17 @@
 package com.twitter.poruke;
 
+
 /**
+ * Klasa koja cuva poruke
  * 
  * @author Milos
- * 
- * @version 1.0
- *
- *Klasa koja cuva poruke
- *
+ *@version 1.0
  */
 
 public class TwitterPoruka {
 
 	/**
-	 * Ime korisnika.
+	 * Ime korisnika
 	 */
 	private String korisnik;
 	/**
@@ -39,6 +37,7 @@ public class TwitterPoruka {
 	 */
 	public void setKorisnik(String korisnik) {
 		if (korisnik == null || korisnik.isEmpty())
+			
 			throw new RuntimeException("Ime korisnika mora biti uneto");
 		this.korisnik = korisnik;
 	}
