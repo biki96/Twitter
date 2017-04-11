@@ -60,8 +60,8 @@ public class TwitterPoruka {
 	 * </ul>
 	 */
 	public void setPoruka(String poruka) {
-		if (poruka == null || poruka.equals("") || poruka.length() > 140)
-			throw new RuntimeException("Poruka mora biti uneta i mora imati najvise 140 znakova");
+		if (poruka == null || poruka.equals("") )
+			throw new RuntimeException("Poruka mora biti uneta");
 		this.poruka = poruka;
 	}
 	
